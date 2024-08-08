@@ -73,6 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+/** AWS Cloud Database */
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'dbcluster1.cj6igu0wub0a.ap-south-1.rds.amazonaws.com',
