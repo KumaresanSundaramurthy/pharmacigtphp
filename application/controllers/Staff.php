@@ -1,17 +1,21 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Staff extends CI_Controller
-{
+class Staff extends CI_Controller {
+
+	public $userData = [];
+
 	public function __construct() {
 		parent::__construct();
+
 		$this->load->model('CommonModel');
-	} // Load Common Model
+
+	}
 
 	function index()
 	{
-		$data['title'] = 'CodeIgniter Simple Login form With Session';
-		$this->load->view("staff_login", $data);
+		// print_r($this->userData);
+		// $data['title'] = 'CodeIgniter Simple Login form With Session';
+		// $this->load->view("staff_login", $data);
 	}
 
 	function login_validation()
