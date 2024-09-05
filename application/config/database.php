@@ -76,7 +76,7 @@ $query_builder = TRUE;
 /** AWS Cloud Database */
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'dbcluster1.cj6igu0wub0a.ap-south-1.rds.amazonaws.com',
+	'hostname' => 'dbcluster1.cj6igu0wub0a.ap-south-1.rds.amazonaws.com1212',
 	'username' => 'kumarcluster1',
 	'password' => 'kumaresan123',
 	'port' => '3306',
