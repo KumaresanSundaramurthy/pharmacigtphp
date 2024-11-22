@@ -1,55 +1,73 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: bmmah
- * Date: 1/25/2019
- * Time: 11:32 PM
- */
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ShowForm extends CI_Controller
-{
+class ShowForm extends CI_Controller {
+
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('CommonModel');
-	} // Load Common Model
+		// $this->load->model('CommonModel');
+	}
 
-	public function create_medicine_presentation($msg) {
-		if ($this->session->userdata('username') != '') {
-			$data['all_value'] = $this->CommonModel->get_all_info('create_medicine_presentation');
+	public function create_medicine_presentation($msg = "") {
+
+		$Url = getenv('SERVICE_HOST').'/api/medicines/getAllMedicinePresentation';
+		$PostData = json_encode([]);
+		$Header = array('Authorization: Bearer '.$this->userData['JwtToken'], 'Content-Type: application/json');
+
+		$ServiceResponse = $this->curlrequest->ServiceRequest($Url, 'GET', $Header, $PostData);
+		if($ServiceResponse->Status) {
+
+			// $data['all_value'] = $this->CommonModel->get_all_info('create_medicine_presentation');
+			$data['all_value'] = $ServiceResponse->Data->Data;
 			$data['msg'] = $msg;
 			$this->load->view("create_option/header");
 			$this->load->view("create_option/medicine_presentation",$data);
 			$this->load->view("create_option/footer");
+
 		} else {
 			$data['wrong_msg'] = "";
-			$this->load->view('Main/login', $data);
+			// $this->load->view('Main/login', $data);
+			redirect(base_url() . 'main/login', $data);
 		}
+
 	}
+
 	public function create_generic_name($msg) {
-		if ($this->session->userdata('username') != '') {
-			$data['all_value'] = $this->CommonModel->get_all_info('create_generic_name');
+
+		$Url = getenv('SERVICE_HOST').'/api/generic/getAllGenericDetails';
+		$PostData = json_encode([]);
+		$Header = array('Authorization: Bearer '.$this->userData['JwtToken'], 'Content-Type: application/json');
+
+		$ServiceResponse = $this->curlrequest->ServiceRequest($Url, 'GET', $Header, $PostData);
+		if($ServiceResponse->Status) {
+
+			// $data['all_value'] = $this->CommonModel->get_all_info('create_generic_name');
+			$data['all_value'] = $ServiceResponse->Data->Data;
 			$data['msg'] = $msg;
 			$this->load->view("create_option/header");
 			$this->load->view("create_option/generic_name",$data);
 			$this->load->view("create_option/footer");
+
 		} else {
+
 			$data['wrong_msg'] = "";
-			$this->load->view('Main/login', $data);
+			redirect(base_url() . 'main/login', $data);
+			
 		}
 	}
+
 	public function create_medicine_name($msg) {
-		if ($this->session->userdata('username') != '') {
-			$data['all_generic'] = $this->CommonModel->get_all_info('create_generic_name');
-			$data['all_value'] = $this->CommonModel->get_all_info('create_medicine_name');
-			$data['msg'] = $msg;
-			$this->load->view("create_option/header");
-			$this->load->view("create_option/medicine_name",$data);
-			$this->load->view("create_option/footer");
-		} else {
-			$data['wrong_msg'] = "";
-			$this->load->view('Main/login', $data);
-		}
+
+		$data['all_generic'] = $this->CommonModel->get_all_info('create_generic_name');
+		$data['all_value'] = $this->CommonModel->get_all_info('create_medicine_name');
+		$data['msg'] = $msg;
+		$this->load->view("create_option/header");
+		$this->load->view("create_option/medicine_name",$data);
+		$this->load->view("create_option/footer");
+
 	}
+
+	
+	
 	public function create_product_category($msg) {
 		if ($this->session->userdata('username') != '') {
 			$data['all_value'] = $this->CommonModel->get_all_info('create_product_category');

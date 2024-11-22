@@ -1,25 +1,26 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+date_default_timezone_set('Asia/Kolkata');
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-date_default_timezone_set('Asia/Dhaka');
+class Delete extends CI_Controller {
 
-class Delete extends CI_Controller
-{
-
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
-		$this->load->model('CommonModel');
+		
 	}
 
 	public function medicine_presentation($id) {
-		if ($this->session->userdata('username') != '') {
-			$this->CommonModel->delete_info('medicine_presentation_id', $id, 'create_medicine_presentation');
+
+		$Url = getenv('SERVICE_HOST').'/api/medicines/deleteMedicinePresentation';
+		$PostData = json_encode(['ReferenceId' => $id]);
+		$Header = array('Authorization: Bearer '.$this->userData['JwtToken'], 'Content-Type: application/json');
+
+		$ServiceResponse = $this->curlrequest->ServiceRequest($Url, 'POST', $Header, $PostData);
+		if($ServiceResponse) {
 			redirect('ShowForm/create_medicine_presentation/delete', 'refresh');
 		} else {
-			$data['wrong_msg'] = "";
-			$this->load->view('Main/login', $data);
+			redirect('ShowForm/create_medicine_presentation/something-went-wrong', 'refresh');
 		}
+		
 	}
 	public function generic_name($id) {
 		if ($this->session->userdata('username') != '') {

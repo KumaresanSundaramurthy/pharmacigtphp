@@ -59,7 +59,7 @@ if ($msg == "main") {
 <!--											  <p  style="font-size: 20px; color: #066;">--><?php //echo $msg; ?><!--</p>-->
 											  <div class="form-group" style="width: 400px;">
 												  <label for="medicine_presentation">Medicine Presentation</label>
-												  <input type="text" class="form-control" id="medicine_presentation" placeholder="" name="medicine_presentation">
+												  <input type="text" class="form-control" id="medicine_presentation" required="required" placeholder="Enter Medicine Presentation" autocomplete="off" name="medicine_presentation">
 											  </div>
 										  </div>
 										  <div class="box-footer">
@@ -94,10 +94,10 @@ if ($msg == "main") {
 											   ?>
 											   <tr>
 												   <td style="text-align: center;"><?php echo $count; ?></td>
-												   <td style="text-align: center;"><?php echo $single_value->medicine_presentation; ?></td>
+												   <td style="text-align: center;"><?php echo $single_value->MedicinePresentationName; ?></td>
 												   <td style="text-align: center;">
 													   <a style="margin: 5px;" class="btn btn-danger"
-														  href="<?php echo base_url(); ?>Delete/medicine_presentation/<?php echo $single_value->medicine_presentation_id; ?>">Delete
+														  href="<?php echo base_url(); ?>Delete/medicine_presentation/<?php echo $single_value->_id; ?>">Delete
 													   </a>
 												   </td>
 											   </tr>
