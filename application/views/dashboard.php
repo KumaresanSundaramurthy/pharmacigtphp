@@ -47,19 +47,19 @@
       </div>
       <div class="col-md-4">
 			  <div class="well dash-box">
-				  <h2> <span class="glyphicon glyphicon-th-list" aria-hidden="true" style="color: rgb(132, 75, 158);"></span> <?php $query = $this->db->query('SELECT * FROM create_generic_name'); echo $query->num_rows();?></h2>
+				  <h2> <span class="glyphicon glyphicon-th-list" aria-hidden="true" style="color: rgb(132, 75, 158);"></span> <?php // $query = $this->db->query('SELECT * FROM create_generic_name'); echo $query->num_rows();?></h2>
 				  <h4>  Medicine Generic</h4>
 			  </div>
       </div>
       <div class="col-md-4">
 			  <div class="well dash-box">
-				  <h2> <span class="glyphicon glyphicon-certificate" aria-hidden="true" style="color: rgb(139, 139, 139);"></span> <?php $query = $this->db->query('SELECT * FROM create_medicine_name'); echo $query->num_rows();?></h2>
+				  <h2> <span class="glyphicon glyphicon-certificate" aria-hidden="true" style="color: rgb(139, 139, 139);"></span> <?php // $query = $this->db->query('SELECT * FROM create_medicine_name'); echo $query->num_rows();?></h2>
 				  <h4>  Medicines</h4>
 			  </div>
 		  </div>
       <div class="col-md-4">
 			  <div class="well dash-box">
-				  <h2> <span class="glyphicon glyphicon-user" aria-hidden="true" style="color: rgb(109, 139, 0);"></span> <?php $query = $this->db->query('SELECT * FROM staff'); echo $query->num_rows();?></h2>
+				  <h2> <span class="glyphicon glyphicon-user" aria-hidden="true" style="color: rgb(109, 139, 0);"></span> <?php // $query = $this->db->query('SELECT * FROM staff'); echo $query->num_rows();?></h2>
 				  <h4>  Staffs</h4>
 			  </div>
 		  </div>

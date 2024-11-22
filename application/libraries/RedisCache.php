@@ -45,5 +45,24 @@ class RedisCache {
 
         return $ReturnData;
     }
+    
+    function delete($Key) {
+
+        $ReturnData = new stdClass();
+
+        if($this->Client->exists($Key)) {
+
+            $ReturnData->Message = "Successfully Deleted";
+            $ReturnData->Status = true;
+            $ReturnData->Data = $this->Client->del($Key);
+
+        } else {
+            $ReturnData->Message = "Failed to Delete";
+            $ReturnData->Status = false;
+        }
+
+        return $ReturnData;
+
+    }
 
 }

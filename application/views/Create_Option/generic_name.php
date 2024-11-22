@@ -97,10 +97,10 @@ if ($msg == "main") {
 									?>
                                     <tr>
                                         <td style="text-align: center;"><?php echo $count; ?></td>
-                                        <td style="text-align: center;"><?php echo $single_value->generic_name; ?></td>
+                                        <td style="text-align: center;"><?php echo $single_value->GenericName; ?></td>
                                         <td style="text-align: center;">
                                             <a style="margin: 5px;" class="btn btn-danger"
-                                                href="<?php echo base_url(); ?>Delete/generic_name/<?php echo $single_value->generic_id; ?>">Delete
+                                                href="<?php echo base_url(); ?>Delete/generic_name/<?php echo $single_value->_id; ?>">Delete
                                             </a>
                                         </td>
                                     </tr>

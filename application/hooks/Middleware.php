@@ -38,17 +38,17 @@ class Middleware {
                             $this->CI->userData = json_decode(json_encode($RedisData->Data), true);
 
                         } else {
-                            $this->session->set_flashdata('error', 'Session is expired. Please login again.!');
+                            $this->CI->session->set_flashdata('error', 'Session is expired. Please login again.!');
 				            redirect(base_url() . 'main/login');
                         }
 
                     } else {
-                        $this->session->set_flashdata('error', 'Session is expired. Please login again.!');
+                        $this->CI->session->set_flashdata('error', 'Session is expired. Please login again.!');
 				        redirect(base_url() . 'main/login');
                     }
 
                 } else {
-                    $this->session->set_flashdata('error', 'Session is expired. Please login again.!');
+                    $this->CI->session->set_flashdata('error', 'Session is expired. Please login again.!');
 				    redirect(base_url() . 'main/login');
                 }
 
